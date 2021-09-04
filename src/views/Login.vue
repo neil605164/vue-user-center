@@ -27,6 +27,7 @@
     border-radius: 10px;
     color: white;
     padding: 40px;
+    opacity:0.95;
 }
 
 h2 {
