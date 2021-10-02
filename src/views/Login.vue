@@ -53,6 +53,7 @@ button{
 
 <script>
   export default {
+    name: "Login",
     data() {
       return {
         labelPosition: 'top',
