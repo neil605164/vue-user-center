@@ -20,6 +20,19 @@
 </template>
 
 <style scoped>
+
+#main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url("../assets/login.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 0%;
+  background-color: rgb(0, 0, 0);
+  height: 100vh;
+}
+
 #content{
     width: 300px;
     height: 300px;

@@ -1,6 +1,6 @@
 <template>
     <div id="main">
-        <h1>123</h1>
+        <h1>department page</h1>
     </div>
 </template>
 
@@ -12,9 +12,12 @@
 
 <script>
   export default {
-    name: "Home",
+    name: "Department",
     data() {
-      return {};
+      return {
+      };
+    },
+    methods: {
     }
   }
 </script>
