@@ -3,14 +3,20 @@
     <div id="menu">
       <h1>會員系統</h1>
       <ul>
-        <router-link tag="li" v-for="item in menuList" :key="item.id" :to="item.router">{{ item.name }}</router-link>
+        <router-link
+          tag="li"
+          v-for="item in menuList"
+          :key="item.id"
+          :to="item.router"
+          >{{ item.name }}</router-link
+        >
       </ul>
     </div>
     <div id="header">
       <div id="func">
         <div id="name" class="user-info">Hi, {{ userInfo.name }}</div>
         <div class="block user-info border-line">
-          <img :src="circleUrl">
+          <img :src="circleUrl" />
         </div>
         <button class="success">變更密碼</button>
         <button class="danger">登出</button>
@@ -32,7 +38,6 @@
   padding-left: 250px;
   width: 100%;
   height: 58px;
-  background-color: #fff;
   border-bottom: solid rgba(161, 161, 161, 0.192) 1px;
   box-sizing: border-box;
 }
@@ -100,8 +105,8 @@ button {
 }
 
 img {
-    width: 40px;
-    height: 40px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
 }
 </style>

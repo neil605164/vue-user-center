@@ -19,6 +19,11 @@
   color: white;
   padding: 1px 0 !important;
 }
+
+#app {
+  background-color: black;
+  height: 100vh;
+}
 </style>
 
 <script>
