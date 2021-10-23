@@ -6,22 +6,29 @@
     </div>
     <div id="table">
       <template>
-        <el-table
-          :data="tableData"
-          style="width: 100%"
-          height="700"
-          border
-        >
-          <el-table-column prop="account" label="帳號" width="180">
+        <el-table :data="tableData" style="width: 100%">
+          <el-table-column min-width="150" prop="account" label="帳號">
           </el-table-column>
-          <el-table-column width="180" prop="status" label="狀態">
+          <el-table-column prop="status" label="狀態">
             <template slot-scope="scope">
               <el-switch v-model="scope.row.status"></el-switch>
             </template>
           </el-table-column>
           <el-table-column prop="authority" label="權限"> </el-table-column>
           <el-table-column prop="depart" label="部門"> </el-table-column>
-          <el-table-column label="操作"> </el-table-column>
+          <el-table-column min-width="180" label="操作">
+            <div class="control">
+              <div id="edit" class="padding">
+                <font-awesome-icon icon="tools" class="size" />
+              </div>
+              <div id="reset" class="padding">
+                <font-awesome-icon icon="redo" class="size" />
+              </div>
+              <div id="delete" class="padding">
+                <font-awesome-icon icon="trash-alt" class="size" />
+              </div>
+            </div>
+          </el-table-column>
         </el-table>
       </template>
     </div>
@@ -31,6 +38,29 @@
 <style scoped>
 #content {
   padding-left: 250px;
+}
+
+.size {
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.size:hover {
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.size:active {
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.control {
+  display: flex;
+}
+
+.padding {
+  padding: 10px;
 }
 
 #topic {
@@ -64,9 +94,27 @@ button {
   background-color: rgb(41, 197, 245);
 }
 
-.el-table>>> thead tr {
-  background-color: rgb(32, 32, 32) !important;
+.el-table >>> thead tr th {
+  background-color: rgb(41, 41, 41) !important;
   color: #fff !important;
+}
+
+.el-table >>> .el-table__row {
+  background-color: rgb(63, 63, 63) !important;
+  color: #fff !important;
+  height: 80px;
+}
+
+.el-table >>> td.el-table__cell {
+  border-bottom: 1px ridge rgba(99, 99, 99, 0.6);
+}
+
+.el-table--enable-row-hover >>> .el-table__body tr:hover > td.el-table__cell {
+  background-color: rgb(63, 63, 63) !important;
+}
+
+.el-table >>> th.el-table__cell.is-leaf {
+  border-bottom: none !important;
 }
 
 .darkblack {

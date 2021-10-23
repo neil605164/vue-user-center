@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Menu v-if="currentRouteName != 'Login'"/>
+    <Menu v-if="currentRouteName != 'Login'" />
     <router-view />
   </div>
 </template>
@@ -21,8 +21,8 @@
 }
 
 #app {
-  background-color: black;
-  height: 100vh;
+  background-color: rgb(32, 32, 32);
+  min-height: 100vh;
 }
 </style>
 
