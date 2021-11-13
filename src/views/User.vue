@@ -1,8 +1,10 @@
 <template>
   <div id="content">
+    <UserEdit v-if="showEdit" />
+    <UserCreate v-if="showCreate" />
     <div id="topic">
       <h2>會員列表</h2>
-      <button id="btn-create">新增</button>
+      <button id="btn-create" @click="showCreate = !showCreate">新增</button>
     </div>
     <div id="table">
       <template>
@@ -18,13 +20,13 @@
           <el-table-column prop="depart" label="部門"> </el-table-column>
           <el-table-column min-width="180" label="操作">
             <div class="control">
-              <div id="edit" class="padding">
-                <font-awesome-icon icon="tools" class="size" />
+              <div id="edit" class="padding" title="編輯" @click="showEdit = !showEdit">
+                <font-awesome-icon icon="tools" class="size"/>
               </div>
-              <div id="reset" class="padding">
+              <div id="reset" class="padding" title="重設密碼">
                 <font-awesome-icon icon="redo" class="size" />
               </div>
-              <div id="delete" class="padding">
+              <div id="delete" class="padding" title="刪除">
                 <font-awesome-icon icon="trash-alt" class="size" />
               </div>
             </div>
@@ -94,6 +96,10 @@ button {
   background-color: rgb(41, 197, 245);
 }
 
+#btn-create:active {
+  background-color: rgb(36, 171, 212);
+}
+
 .el-table >>> thead tr th {
   background-color: rgb(41, 41, 41) !important;
   color: #fff !important;
@@ -129,13 +135,15 @@ button {
 </style>
 
 <script>
+import UserEdit from "../components/ＵserEdit.vue";
+import UserCreate from "../components/UserCreate.vue";
+
 export default {
   name: "User",
   data() {
     return {
-      form: {
-        status: true,
-      },
+      showEdit: false,
+      showCreate: false,
       tableData: [
         {
           id: "1",
@@ -262,6 +270,10 @@ export default {
 
       return "lightblack";
     },
+  },
+  components: {
+    UserEdit,
+    UserCreate,
   },
 };
 </script>

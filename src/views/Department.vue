@@ -1,8 +1,9 @@
 <template>
   <div id="content">
+    <DepartEdit v-if="showEdit"/>
     <div id="topic">
       <h2>會員列表</h2>
-      <button id="btn-create">新增</button>
+      <button id="btn-create" @click="showEdit = !showEdit">新增</button>
     </div>
     <div id="table">
       <template>
@@ -13,10 +14,10 @@
           <el-table-column min-width="120" prop="depart_name" label="部門名稱"> </el-table-column>
           <el-table-column min-width="180" label="操作">
             <div class="control">
-              <div id="edit" class="padding">
+              <div id="edit" class="padding" title="編輯" @click="showEdit = !showEdit">
                 <font-awesome-icon icon="tools" class="size" />
               </div>
-              <div id="delete" class="padding">
+              <div id="delete" class="padding" title="刪除">
                 <font-awesome-icon icon="trash-alt" class="size" />
               </div>
             </div>
@@ -86,6 +87,10 @@ button {
   background-color: rgb(41, 197, 245);
 }
 
+#btn-create:active{
+  background-color: rgb(36, 171, 212);
+}
+
 .el-table >>> thead tr th {
   background-color: rgb(41, 41, 41) !important;
   color: #fff !important;
@@ -122,13 +127,13 @@ button {
 </style>
 
 <script>
+import DepartEdit from "../components/DepartEdit.vue";
+
 export default {
   name: "Department",
   data() {
     return {
-      form: {
-        status: true,
-      },
+      showEdit: false,
       tableData: [
         {
           id: "1",
@@ -163,6 +168,9 @@ export default {
 
       return "lightblack";
     },
+  },
+  components: {
+    DepartEdit,
   },
 };
 </script>

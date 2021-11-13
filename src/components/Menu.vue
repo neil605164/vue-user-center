@@ -96,12 +96,20 @@ button {
   background-color: rgb(97, 196, 97);
 }
 
+.success:active {
+  background-color: rgb(76, 179, 76);
+}
+
 .danger {
   background-color: rgb(233, 73, 73);
 }
 
 .danger:hover {
   background-color: rgb(250, 98, 98);
+}
+
+.danger:active {
+  background-color: rgb(233, 73, 73);
 }
 
 img {
