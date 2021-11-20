@@ -1,6 +1,6 @@
 <template>
   <div id="content">
-    <DepartEdit v-if="showEdit"/>
+    <DepartEdit @EditshowEdited="editShowEditStatus" v-if="showEdit"/>
     <div id="topic">
       <h2>會員列表</h2>
       <button id="btn-create" @click="showEdit = !showEdit">新增</button>
@@ -167,6 +167,9 @@ export default {
       }
 
       return "lightblack";
+    },
+    editShowEditStatus(e) {
+      this.showEdit = e
     },
   },
   components: {
