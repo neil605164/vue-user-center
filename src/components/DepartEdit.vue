@@ -37,6 +37,7 @@ h3 {
   height: 100vh;
   position: fixed;
   z-index: 1;
+  left: 0;
   top: 20%;
 }
 

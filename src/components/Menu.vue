@@ -144,7 +144,7 @@ export default {
   },
   methods: {
     logout() {
-      var r = confirm("確定要登出嗎？");
+      let r = confirm("確定要登出嗎？");
 
       if (r) {
         // 清除 localstorage

@@ -1,7 +1,7 @@
 <template>
   <div id="content">
     <UserEdit @EditshowEdited="editShowEditStatus" v-if="showEdit" />
-    <UserCreate @EditshowEdited="editShowCreateStatus" v-if="showCreate"/>
+    <UserCreate @EditshowEdited="editShowCreateStatus" v-if="showCreate" />
     <div id="topic">
       <h2>會員列表</h2>
       <button id="btn-create" @click="showCreate = !showCreate">新增</button>
@@ -20,8 +20,13 @@
           <el-table-column prop="depart" label="部門"> </el-table-column>
           <el-table-column min-width="180" label="操作">
             <div class="control">
-              <div id="edit" class="padding" title="編輯" @click="showEdit = !showEdit">
-                <font-awesome-icon icon="tools" class="size"/>
+              <div
+                id="edit"
+                class="padding"
+                title="編輯"
+                @click="showEdit = !showEdit"
+              >
+                <font-awesome-icon icon="tools" class="size" />
               </div>
               <div id="reset" class="padding" title="重設密碼">
                 <font-awesome-icon icon="redo" class="size" />
@@ -137,6 +142,7 @@ button {
 <script>
 import UserEdit from "../components/ＵserEdit.vue";
 import UserCreate from "../components/UserCreate.vue";
+import {helper} from "../common/helper"
 
 export default {
   name: "User",
@@ -271,11 +277,15 @@ export default {
       return "lightblack";
     },
     editShowEditStatus(e) {
-      this.showEdit = e
+      this.showEdit = e;
     },
     editShowCreateStatus(e) {
-      this.showCreate = e
+      this.showCreate = e;
     },
+  },
+  watch: {
+    showEdit: helper.fixedScroll,
+    showCreate: helper.fixedScroll,
   },
   components: {
     UserEdit,

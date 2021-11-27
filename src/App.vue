@@ -40,7 +40,7 @@ export default {
     },
   },
   mounted() {
-    // var authToken = localStorage.getItem("authorization");
+    // let authToken = localStorage.getItem("authorization");
 
     // if (!authToken) {
     //     // 跳轉到 login 畫面

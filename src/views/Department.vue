@@ -128,6 +128,7 @@ button {
 
 <script>
 import DepartEdit from "../components/DepartEdit.vue";
+import {helper} from "../common/helper"
 
 export default {
   name: "Department",
@@ -171,6 +172,9 @@ export default {
     editShowEditStatus(e) {
       this.showEdit = e
     },
+  },
+  watch: {
+    showEdit: helper.fixedScroll,
   },
   components: {
     DepartEdit,
