@@ -39,5 +39,14 @@ export default {
       return this.$route.name;
     },
   },
+  mounted() {
+    // var authToken = localStorage.getItem("authorization");
+
+    // if (!authToken) {
+    //     // 跳轉到 login 畫面
+    //     this.$router.push({ name: "Login" });
+    //     return
+    // }
+  },
 };
 </script>

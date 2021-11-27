@@ -19,7 +19,7 @@
           <img :src="circleUrl" />
         </div>
         <button class="success">變更密碼</button>
-        <button class="danger">登出</button>
+        <button class="danger" @click="logout">登出</button>
       </div>
     </div>
   </div>
@@ -141,6 +141,19 @@ export default {
         },
       ],
     };
+  },
+  methods: {
+    logout() {
+      var r = confirm("確定要登出嗎？");
+
+      if (r) {
+        // 清除 localstorage
+        localStorage.removeItem("authorization");
+
+        // 導向 login 畫面
+        this.$router.push({ name: "Login" });
+      }
+    },
   },
 };
 </script>

@@ -73,7 +73,8 @@ button{
         formLabelAlign: {
           name: '',
           pass: '',
-        },rules: {
+        },
+        rules: {
           name: [
             { required: true, message: '請輸入帳號', trigger: 'blur' },
             { min: 6, max: 12, message: '長度在 6-12 字元', trigger: 'blur' }
@@ -88,9 +89,15 @@ button{
     methods: {
       submitForm(formName) {
         this.$refs[formName].validate((valid) => {
-
+          // 檢查是否通過套件驗證
           if (valid) {
-            alert('submit!');
+            // 呼叫後端 API
+
+            // 寫入 local storage
+            localStorage.setItem("authorization", this.formLabelAlign.name)
+
+            // 跳轉到預設 user 畫面
+            this.$router.push({ name: "User" });
           } else {
             console.log('error submit!!');
             return false;
